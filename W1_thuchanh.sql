@@ -1,10 +1,10 @@
 WITH customer_spending AS (
     SELECT
         user_id,
-        SUM(sale_price) AS total_spend -- Tính tổng giá bán
+        SUM(sale_price) AS total_spend 
     FROM `bigquery-public-data.thelook_ecommerce.order_items`
     WHERE status = 'Complete'
-      AND EXTRACT (YEAR from created_at)  = 2023 -- Lọc năm 2023 
+      AND EXTRACT (YEAR from created_at)  = 2023 
     GROUP BY user_id
 ),
 ranked_customers AS (
